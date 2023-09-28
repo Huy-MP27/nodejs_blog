@@ -25,7 +25,7 @@ class CourseController {
       .save()
       .then(() => res.redirect("/"))
       .catch((error) => {});
-    res.json(req.body);
+    // res.json(req.body);
   }
 }
 

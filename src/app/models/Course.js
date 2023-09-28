@@ -8,7 +8,7 @@ const Course = new Schema(
     name: { type: String, require: true },
     image: { type: String },
     description: { type: String },
-    slug: { type: String, slug: "name", unique: true },
+    slug: { type: String, slug: `name`, unique: true },
     videoId: { type: String, require: true },
     level: { type: String },
   },
