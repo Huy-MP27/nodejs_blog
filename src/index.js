@@ -9,6 +9,9 @@ const app = express();
 // http
 // app.use(morgan("combined"));
 
+// app.use(express.urlencoded());
+app.use(express.json());
+
 const route = require("./routes");
 
 const db = require("./config/db");
