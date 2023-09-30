@@ -2,18 +2,19 @@ const express = require("express");
 const handlebars = require("express-handlebars");
 const morgan = require("morgan");
 const path = require("path");
-// const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const port = 3000;
 const app = express();
 
 // http
 // app.use(morgan("combined"));
 
-// app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const route = require("./routes");
+const route = require("./routes/index");
 
+// Connect to DB
 const db = require("./config/db");
 db.connect();
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resource", "views"));
 
+// routes init
 route(app);
 
 app.listen(port, () => {

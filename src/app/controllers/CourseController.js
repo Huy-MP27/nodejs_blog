@@ -5,9 +5,9 @@ class CourseController {
   // [GET] /course/:slug/nodejs
   show(req, res, next) {
     Course.findOne({ slug: req.params.slug })
-      .then((courses) => {
-        res.render("courses/show", { courses: mongooseToObject(courses) });
-      })
+      .then((courses) =>
+        res.render("courses/show", { courses: mongooseToObject(courses) })
+      )
       .catch(next);
   }
   //[GET] /courses/create
@@ -17,13 +17,11 @@ class CourseController {
 
   //[POST] /courses/store
   store(req, res, next) {
-    const formData = req.body;
-    formData.image =
-      "https://files.fullstack.edu.vn/f8-prod/courses/14/624faac11d109.png";
-    const courses = new Course(formData);
-    courses
+    req.body.image = `https://i.ytimg.com/vi/${req.body.videoID}/maxresdefault.jpg`;
+    const course = new Course(req.body);
+    course
       .save()
-      .then(() => res.redirect("/"))
+      .then(() => res.redirect(`/`))
       .catch((error) => {});
     // res.json(req.body);
   }
