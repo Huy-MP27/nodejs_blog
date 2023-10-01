@@ -2,6 +2,7 @@ const express = require("express");
 const handlebars = require("express-handlebars");
 const morgan = require("morgan");
 const path = require("path");
+const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 const port = 3000;
 const app = express();
@@ -21,11 +22,16 @@ db.connect();
 app.engine(
   "hbs",
   handlebars.engine({
-    defaultLayout: "main",
     extname: ".hbs",
+    defaultLayout: "main",
+    helpers: {
+      sum: (a, b) => a + b,
+    },
   })
 );
+
 app.use(express.static(path.join(__dirname, "public")));
+app.use(methodOverride("_method"));
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resource", "views"));
