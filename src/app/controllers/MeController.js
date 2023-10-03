@@ -7,15 +7,17 @@ const {
 class MeController {
   // [GET] /me/stored/courses
   storedCourses(req, res, next) {
-    Course.find({})
-      .then((courses) =>
+    Promise.all([Course.find({}), Course.findDeleted()])
+      .then(([courses, deletedCount]) => {
         res.render("me/stored-courses", {
           courses: multipleMongooseToObject(courses),
-        })
-      )
+          deletedCount: deletedCount.filter((course) => course.deleted).length,
+        });
+      })
       .catch(next);
   }
 
+  // Xóa khóa học
   trashCourses(req, res, next) {
     Course.findWithDeleted({ deleted: true })
       .then((courses) =>
