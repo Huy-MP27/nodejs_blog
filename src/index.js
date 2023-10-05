@@ -31,29 +31,6 @@ app.engine(
     helpers: {
       sum: (a, b) => a + b,
       sortable: (field, sort) => {
-        // const icons = {
-        //   default: "fas fa-sort",
-        //   asc: "fas fa-sort-amount-down-alt",
-        //   desc: "fas fa-sort-amount-down",
-        // };
-
-        // const types = {
-        //   default: "desc",
-        //   asc: "desc",
-        //   desc: "asc",
-        // };
-
-        // const type = types.default;
-        // console.log(type);
-
-        // const icon = icons.desc;
-
-        // return `<a href="?_sort&column=${sort.column}&type=${type}">
-        //     <i class="${icon}"></i>
-        // </a>`;
-        // // return `<a href="?_sort&column=name&type=desc">
-        // //     <i class="fas fa-sort"></i>
-        // // </a>`;
         const iconTypes = {
           default: "fas fa-sort",
           asc: "fas fa-sort-amount-down-alt",
