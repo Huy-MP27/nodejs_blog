@@ -5,3 +5,8 @@
 .checkbox-select-all-options {
   width: 180px;
   margin: 0 16px; }
+
+#footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0; }

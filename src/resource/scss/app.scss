@@ -1,5 +1,7 @@
 @import 'variable';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+
 .card-course-item {
     margin-top: 16px;
 }
@@ -8,4 +10,11 @@
     width: 180px;
     margin: 0 16px;
 }
+
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
 
