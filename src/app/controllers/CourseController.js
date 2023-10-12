@@ -77,6 +77,28 @@ class CourseController {
         res.json({ message: "Action is invalid!" });
     }
   }
+
+  pagination(req, res, next) {
+    const perPage = 5;
+    const page = req.params.page || 1;
+
+    Course.find({})
+      .skip(perPage * page - perPage)
+      .limit(perPage)
+      .exec((err, courses) => {
+        Course.countDocuments((err, count) => {
+          if (err) {
+            return next(err);
+          } else {
+            res.render("me/stored-courses", {
+              courses,
+              current: page,
+              pages: Math.ceil(count / perPage),
+            });
+          }
+        });
+      });
+  }
 }
 
 module.exports = new CourseController();

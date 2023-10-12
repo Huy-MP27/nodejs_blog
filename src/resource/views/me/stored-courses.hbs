@@ -2,7 +2,7 @@
     <div>
         <h3>Khóa học của tuiii</h3>
         <a href="/me/trash/courses">Thùng Rác đó ({{deletedCount}})</a>
-
+        
         <div class="mt-4 d-flex align-items-center">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
@@ -16,13 +16,10 @@
             </select>
 
             <button class="btn btn-primary btm-sm btn-check-all-submit" disabled="disabled">Thực hiện</button>
-
         </div>
-
-        
     </div>
     
-    <table class="table mt-4" id="example">
+    <table class="table mt-4 table-hover " id="example">
         <thead>
             <tr>
                 <th scope="col" colspan="2">#</th>
@@ -52,9 +49,10 @@
                 </td>
 
                 <th scope="row">{{sum @index 1}}</th>
-                    <td>{{this.name}}</td>
-                    <td>{{this.level}}</td>
-                    <td>{{this.createdAt}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.level}}</td>
+                <td>{{this.createdAt}}</td>
+                
                 <td>
                     <a href="/courses/{{this._id}}/edit" class="btn btn-success">Sửa</a>
                     <a href="" class="btn btn-danger"data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#delete-course-modal">Xóa</a>
@@ -92,25 +90,22 @@
     </div>
 </div>
 
+{{!-- Pagination --}}
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
 
-        <li class="page-item disabled">
-            <a class="page-link" href="">Sau</a>
-        </li>
-        
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-        <li class="page-item">
-            <a class="page-link" href="#">Trước</a>
-        </li>
+        <li class="page-item disabled"><a class="page-link" href="">Sau</a></li>
+        <li class="page-item"><a class="page-link" href="/courses/:page">1</a></li>
+        <li class="page-item"><a class="page-link" href="/courses/:page">2</a></li>
+        <li class="page-item"><a class="page-link" href="/courses/:page">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Trước</a></li>
     </ul>
 </nav>
+{{!-- Pagination End --}}
 
 <form name="delete-course-form" method="POST"></form>
 
+{{!-- Script JS --}}
 <script>
     
     document.addEventListener('DOMContentLoaded', function() {
@@ -159,6 +154,4 @@
             }
         }
     });
-
-    
 </script>
