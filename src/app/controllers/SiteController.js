@@ -13,9 +13,7 @@ class SiteController {
       .catch(next);
   }
 
-  search(req, res) {
-    res.render("search");
-  }
+  search(req, res) {}
 }
 
 module.exports = new SiteController();

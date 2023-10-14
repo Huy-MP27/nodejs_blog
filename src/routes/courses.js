@@ -11,7 +11,8 @@ router.post("/store", courseController.store);
 
 router.post("/handle-form-action", courseController.handleFormAction);
 
-router.get("/:page", courseController.pagination);
+//paginate
+// router.get("/:page", courseController.pagination);
 
 router.get("/:id/edit", courseController.edit);
 
