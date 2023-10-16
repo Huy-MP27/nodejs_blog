@@ -1,3 +1,4 @@
+
 <div class="grid text-center">
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
     {{#each courses}}
@@ -7,19 +8,17 @@
             <img src="{{this.image}}" class="card-img-top rounded" alt="...">
           </a>
           <div class="card-body">
-            <a href="/courses/{{this.slug}}">
-              <h5 class="card-title">{{this.name}}</h5>
-            </a>
+            
+            <h5 class="card-title">{{this.name}}</h5>
             
             <p class="card-text">{{this.description}}</p>
-            <a href="#" class="btn btn-primary">Mua khóa học</a>
+            <a href="/courses/{{this.slug}}" class="btn btn-primary">Chi tiết khóa học</a>
           </div>
         </div>
       </div>
     {{/each}}
     </div>
 </div>
-
 {{!-- <div>
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">

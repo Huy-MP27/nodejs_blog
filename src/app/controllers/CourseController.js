@@ -22,7 +22,7 @@ class CourseController {
     course
       .save()
       .then(() => res.redirect(`/me/stored/courses`))
-      .catch((error) => {});
+      .catch(next);
     // res.json(req.body);
   }
 
@@ -79,6 +79,10 @@ class CourseController {
   }
 
   //[POST] /courses/:page
+  pagination(req, res, next) {}
+
+  //[POST] /courses/search
+  search(req, res, next) {}
 }
 
 module.exports = new CourseController();

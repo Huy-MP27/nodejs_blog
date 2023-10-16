@@ -13,7 +13,9 @@ class SiteController {
       .catch(next);
   }
 
-  search(req, res) {}
+  search(req, res) {
+    res.json({ message: "successfully!!" });
+  }
 }
 
 module.exports = new SiteController();

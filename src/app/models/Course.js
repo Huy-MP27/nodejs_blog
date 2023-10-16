@@ -14,6 +14,7 @@ const CourseSchema = new Schema(
     videoID: { type: String },
     level: { type: String },
     slug: { type: String, slug: `name`, unique: true },
+    time: { type: String },
   },
   {
     timestamps: true,
@@ -31,10 +32,10 @@ CourseSchema.query.sortable = function (req) {
 };
 
 // ADD plugins
+mongoose.plugin(slug);
 CourseSchema.plugin(mongooseDelete, {
   deletedAt: true,
   overrideMethods: "all",
 });
-mongoose.plugin(slug);
 
 module.exports = mongoose.model(`Course`, CourseSchema);
