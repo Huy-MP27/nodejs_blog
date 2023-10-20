@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0; }
 
+html,
 body {
   width: 100%;
   height: 100%; }
@@ -14,21 +15,7 @@ body {
   width: 180px;
   margin: 0 16px; }
 
-.purchaseBadge ul {
+.footer-item-link {
+  font-size: 25px;
   display: inline-block;
-  margin: 0;
-  padding: 24px 0 10px 4px;
-  text-align: left; }
-
-.purchaseBadge ul li {
-  list-style: none;
-  color: #494949;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 6px;
-  padding-left: 34px;
-  position: relative; }
-
-.footerBlog {
-  height: 50px;
-  margin-top: 145px; }
+  list-style: none; }

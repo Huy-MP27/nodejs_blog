@@ -80,30 +80,18 @@
     
     {{!-- Pagination --}}
     {{!-- <nav aria-label="Page navigation example">
-        {{#pagination currentPage pageCount size}}
         <div class="pagination justify-content-center">
-            {{#unless startFormFirstPage}}
             <li class="page-item">
                 <a class="page-link" href="#">Sau</a>
             </li>
-            {{/unless}}
 
-            {{#each pages}}
-                {{#if isCurrent}}
-                [<li class="page-item"><a class="page-link" href="/news/:page">{{page}}</a></li>]
-                {{/if}}
-                {{#unless isCurrent}}
-                <li class="page-item"><a class="page-link" href="#">{{page}}</a></li>
-                {{/unless}}
-            {{/each}}
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="">2</a></li>
 
-            {{#unless endAtLastPage}}
             <li class="page-item">
                 <a class="page-link" href="#">Trước</a>
             </li>
-            {{/unless}}
         </div>
-        {{/pagination}}
     </nav> --}}
     {{!-- Pagination End --}}
 </form>

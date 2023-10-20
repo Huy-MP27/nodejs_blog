@@ -13,9 +13,6 @@ router.post("/handle-form-action", courseController.handleFormAction);
 
 // router.post("/search", courseController.search);
 
-//paginate
-// router.get("/:page", courseController.pagination);
-
 router.get("/:id/edit", courseController.edit);
 
 router.put("/:id", courseController.update);
