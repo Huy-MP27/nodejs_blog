@@ -1,7 +1,5 @@
 <div class="m-4">
-    {{!-- style="padding-bottom: 26%;" --}}
-    <h3>Trang Đăng Khóa Học</h3>
-
+    <h3>Đăng Khóa Học</h3>
     <form class="mt-4" method="POST" action="/courses/store">
         <div class="mb-3">
             <label for="name">Tên khóa học</label>
@@ -19,6 +17,11 @@
         <div class="mb-3">
             <label for="level">Cấp độ</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name="level">
+        </div>
+
+        <div class="mb-3">
+            <label for="listCourseVideo">Danh Sách Video Youtube</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="listCourseVideo">
         </div>
 
         <button type="submit" class="btn btn-primary ">Thêm khóa học</button>

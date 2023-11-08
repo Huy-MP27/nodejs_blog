@@ -5,7 +5,7 @@ const path = require("path");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 const pagination = require("handlebars-paginate");
-const Handlebars = require("handlebars");
+// const Handlebars = require("handlebars");
 const port = 3000;
 const app = express();
 
@@ -23,6 +23,7 @@ const route = require("./routes/index");
 
 // Connect to DB
 const db = require("./config/db");
+const { count } = require("console");
 db.connect();
 
 // Template Engine
@@ -68,65 +69,14 @@ app.engine(
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
-// Custom Middleware
+// Middleware
 app.use(SortMiddleware);
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resource", "views"));
 
-// Use Route
-// routes init
 route(app);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
-
-// Handlebars.registerHelper(
-//   "pagination",
-//   function (currentPage, totalPage, size, options) {
-//     var startPage, endPage, context;
-
-//     if (arguments.length === 3) {
-//       options = size;
-//       size = 5;
-//     }
-
-//     startPage = currentPage - Math.floor(size / 2);
-//     endPage = currentPage + Math.floor(size / 2);
-
-//     if (startPage <= 0) {
-//       endPage -= startPage - 1;
-//       startPage = 1;
-//     }
-
-//     if (endPage > totalPage) {
-//       endPage = totalPage;
-//       if (endPage - size + 1 > 0) {
-//         startPage = endPage - size + 1;
-//       } else {
-//         startPage = 1;
-//       }
-//     }
-
-//     context = {
-//       startFromFirstPage: false,
-//       pages: [],
-//       endAtLastPage: false,
-//     };
-//     if (startPage === 1) {
-//       context.startFromFirstPage = true;
-//     }
-//     for (var i = startPage; i <= endPage; i++) {
-//       context.pages.push({
-//         page: i,
-//         isCurrent: i === currentPage,
-//       });
-//     }
-//     if (endPage === totalPage) {
-//       context.endAtLastPage = true;
-//     }
-
-//     return options.fn(context);
-//   }
-// );

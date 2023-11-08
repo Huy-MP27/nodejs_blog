@@ -81,7 +81,7 @@ class CourseController {
   //[POST] /courses/:page
   pagination(req, res, next) {}
 
-  //[POST] /courses/search
+  //[GET] /courses/search
   search(req, res, next) {}
 }
 

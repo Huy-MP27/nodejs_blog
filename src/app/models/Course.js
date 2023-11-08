@@ -15,6 +15,12 @@ const CourseSchema = new Schema(
     level: { type: String },
     slug: { type: String, slug: `name`, unique: true },
     time: { type: String },
+    text1: { type: String },
+    text2: { type: String },
+    text3: { type: String },
+    sumCourse: { type: String },
+    listCourseVideo: { type: String },
+    textContent: { type: String },
   },
   {
     timestamps: true,
